@@ -1,0 +1,13 @@
+# action.yml
+name: 'TeX Live Container Build'
+description: 'Used to build TeX Live release binaries'
+inputs:
+  arch:  # id of input
+    description: 'Architecture to build'
+    required: true
+    default: 'x86_64-linux'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.arch }}
