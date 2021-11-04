@@ -1,4 +1,4 @@
-FROM alpine:3.2
+FROM alpine:3.5
 RUN apk update && apk add --no-progress bash gcc g++ make perl fontconfig-dev libx11-dev libxmu-dev libxaw-dev
 # clean up ???
 # RUN apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
