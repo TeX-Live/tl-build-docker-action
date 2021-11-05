@@ -3,6 +3,15 @@
 arch="$1"
 echo "GOT ARCH = $1"
 
+# for CentOS we need to activate gcc-9
+if [ -f /opt/rh/devtoolset-9/enable ]
+then
+  # we cannot call scl enable devtoolset-9 here since we need
+  # the settings in the running shell
+  . /opt/rh/devtoolset-9/enable
+fi
+
+
 find . -name \*.info -exec touch '{}' \;
 touch ./texk/detex/detex-src/detex.c
 touch ./texk/detex/detex-src/detex.h
