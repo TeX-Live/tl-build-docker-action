@@ -32,7 +32,11 @@ touch ./utils/asymptote/camp.tab.h
 touch ./utils/lacheck/lacheck.c
 touch ./utils/xindy/xindy-src/tex2xindy/tex2xindy.c
 
-TL_MAKE_FLAGS="-j 2"
+if [ $arch = armhf-linux ] ; then
+  TL_MAKE_FLAGS="-j 1"
+else
+  TL_MAKE_FLAGS="-j 2"
+fi
 export TL_MAKE_FLAGS
 
 ./Build -C
